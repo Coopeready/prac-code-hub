@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Practical Code Hub</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0b0d12;
+            color: white;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: #11141c;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 42px;
+        }
+
+        header p {
+            color: #aaa;
+            font-size: 17px;
+            margin-top: 12px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #151923;
+            border: 1px solid #292e3a;
+            border-radius: 15px;
+            padding: 25px;
+            min-height: 190px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #ffffff;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        .card button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: white;
+            color: black;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .card button:hover {
+            background: #dddddd;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #777;
+        }
+
+
+        /* =========================
+           CODE VIEWER
+           ========================= */
+
+        .code-viewer {
+            display: none;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0, 0, 0, 0.8);
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+
+            z-index: 1000;
+        }
+
+        .code-box {
+            width: min(900px, 95%);
+
+            max-height: 85vh;
+
+            background: #11151f;
+
+            border: 1px solid #292e3a;
+
+            border-radius: 15px;
+
+            padding: 25px;
+
+            overflow: auto;
+        }
+
+        .code-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 20px;
+        }
+
+        .code-header h2 {
+            margin: 0;
+        }
+
+        .close-button {
+            background: #222733;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 8px;
+
+            padding: 10px 15px;
+
+            font-size: 18px;
+
+            cursor: pointer;
+        }
+
+        .close-button:hover {
+            background: #333947;
+        }
+
+        .code-box pre {
+            background: #080a0f;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            overflow-x: auto;
+
+            color: #e6e6e6;
+
+            font-family: Consolas, monospace;
+
+            font-size: 15px;
+
+            line-height: 1.5;
+
+            white-space: pre-wrap;
+        }
+
+        .copy-button {
+            margin-top: 15px;
+
+            padding: 12px 20px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: white;
+
+            color: black;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .copy-button:hover {
+            background: #dddddd;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <h1>My Practical Code Hub</h1>
+
+        <p>
+            All my Computer Science practical programs in one place.
+        </p>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="container">
+
+        <h2 class="section-title">
+            Practical Programs
+        </h2>
+
+
+        <div class="cards">
+
+
+            <!-- PROJECT 1 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 1</h3>
+
+                    <p>
+                        Practical program 1
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(1)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 2</h3>
+
+                    <p>
+                        Practical program 2
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(2)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 3 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 3</h3>
+
+                    <p>
+                        Practical program 3
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(3)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 4 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 4</h3>
+
+                    <p>
+                        Practical program 4
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(4)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 5 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 5</h3>
+
+                    <p>
+                        Practical program 5
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(5)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 6 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 6</h3>
+
+                    <p>
+                        Practical program 6
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(6)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 7 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 7</h3>
+
+                    <p>
+                        Practical program 7
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(7)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 8 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 8</h3>
+
+                    <p>
+                        Practical program 8
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(8)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 9 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 9</h3>
+
+                    <p>
+                        Practical program 9
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(9)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 10 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 10</h3>
+
+                    <p>
+                        Practical program 10
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(10)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 11 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 11</h3>
+
+                    <p>
+                        Practical program 11
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(11)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 12 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 12</h3>
+
+                    <p>
+                        Practical program 12
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(12)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 13 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 13</h3>
+
+                    <p>
+                        Practical program 13
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(13)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 14 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 14</h3>
+
+                    <p>
+                        Practical program 14
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(14)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 15 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 15</h3>
+
+                    <p>
+                        Practical program 15
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(15)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 16 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 16</h3>
+
+                    <p>
+                        Practical program 16
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(16)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 17 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 17</h3>
+
+                    <p>
+                        Practical program 17
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(17)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 18 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 18</h3>
+
+                    <p>
+                        Practical program 18
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(18)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 19 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 19</h3>
+
+                    <p>
+                        Practical program 19
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(19)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 20 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 20</h3>
+
+                    <p>
+                        Practical program 20
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(20)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 21 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 21</h3>
+
+                    <p>
+                        Practical program 21
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(21)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 22 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 22</h3>
+
+                    <p>
+                        Practical program 22
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(22)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 23 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 23</h3>
+
+                    <p>
+                        Practical program 23
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(23)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 24 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 24</h3>
+
+                    <p>
+                        Practical program 24
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(24)">
+                    View Code
+                </button>
+
+            </div>
+
+
+            <!-- PROJECT 25 -->
+
+            <div class="card">
+
+                <div>
+
+                    <h3>Project 25</h3>
+
+                    <p>
+                        Practical program 25
+                    </p>
+
+                </div>
+
+                <button onclick="openCode(25)">
+                    View Code
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        My Practical Code Hub © 2026
+
+    </footer>
+
+
+    <!-- CODE VIEWER -->
+
+    <div id="codeViewer" class="code-viewer">
+
+        <div class="code-box">
+
+
+            <div class="code-header">
+
+                <h2 id="codeTitle">
+                    Project 1
+                </h2>
+
+                <button
+                    class="close-button"
+                    onclick="closeCode()">
+
+                    ✕
+
+                </button>
+
+            </div>
+
+
+            <pre><code id="codeContent"></code></pre>
+
+
+            <button
+                class="copy-button"
+                onclick="copyCode()">
+
+                Copy Code
+
+            </button>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const projects = {
+
+            1: {
+                title: "Project 1",
+                code: `print("Hello World")`
+            },
+
+            2: {
+                title: "Project 2",
+                code: `# Project 2 code goes here`
+            },
+
+            3: {
+                title: "Project 3",
+                code: `# Project 3 code goes here`
+            },
+
+            4: {
+                title: "Project 4",
+                code: `# Project 4 code goes here`
+            },
+
+            5: {
+                title: "Project 5",
+                code: `# Project 5 code goes here`
+            },
+
+            6: {
+                title: "Project 6",
+                code: `# Project 6 code goes here`
+            },
+
+            7: {
+                title: "Project 7",
+                code: `# Project 7 code goes here`
+            },
+
+            8: {
+                title: "Project 8",
+                code: `# Project 8 code goes here`
+            },
+
+            9: {
+                title: "Project 9",
+                code: `# Project 9 code goes here`
+            },
+
+            10: {
+                title: "Project 10",
+                code: `# Project 10 code goes here`
+            },
+
+            11: {
+                title: "Project 11",
+                code: `# Project 11 code goes here`
+            },
+
+            12: {
+                title: "Project 12",
+                code: `# Project 12 code goes here`
+            },
+
+            13: {
+                title: "Project 13",
+                code: `# Project 13 code goes here`
+            },
+
+            14: {
+                title: "Project 14",
+                code: `# Project 14 code goes here`
+            },
+
+            15: {
+                title: "Project 15",
+                code: `# Project 15 code goes here`
+            },
+
+            16: {
+                title: "Project 16",
+                code: `# Project 16 code goes here`
+            },
+
+            17: {
+                title: "Project 17",
+                code: `# Project 17 code goes here`
+            },
+
+            18: {
+                title: "Project 18",
+                code: `# Project 18 code goes here`
+            },
+
+            19: {
+                title: "Project 19",
+                code: `# Project 19 code goes here`
+            },
+
+            20: {
+                title: "Project 20",
+                code: `# Project 20 code goes here`
+            },
+
+            21: {
+                title: "Project 21",
+                code: `# Project 21 code goes here`
+            },
+
+            22: {
+                title: "Project 22",
+                code: `# Project 22 code goes here`
+            },
+
+            23: {
+                title: "Project 23",
+                code: `# Project 23 code goes here`
+            },
+
+            24: {
+                title: "Project 24",
+                code: `# Project 24 code goes here`
+            },
+
+            25: {
+                title: "Project 25",
+                code: `# Project 25 code goes here`
+            }
+
+        };
+
+
+        function openCode(projectNumber) {
+
+            const project = projects[projectNumber];
+
+            document.getElementById("codeTitle").textContent =
+                project.title;
+
+            document.getElementById("codeContent").textContent =
+                project.code;
+
+            document.getElementById("codeViewer").style.display =
+                "flex";
+
+        }
+
+
+        function closeCode() {
+
+            document.getElementById("codeViewer").style.display =
+                "none";
+
+        }
+
+
+        function copyCode() {
+
+            const code =
+                document.getElementById("codeContent").textContent;
+
+            navigator.clipboard.writeText(code);
+
+            alert("Code copied!");
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
