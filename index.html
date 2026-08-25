@@ -883,7 +883,7 @@
 
             9: {
                 title: "Project 9",
-                code: `# Project 9 code goes here`
+                code: `# Project `
             },
 
             10: {
@@ -893,27 +893,152 @@
 
             11: {
                 title: "Project 11",
-                code: `# Project 11 code goes here`
+                code: `filename = "sample.txt"
+
+
+with open(filename, "w") as file:
+    file.write("Hello, this is my sample file.\n")
+    file.write("This file is created using Python.\n")
+    file.write("We are counting its contents.")
+
+
+with open(filename, "r") as file:
+    data = file.read()
+
+
+with open(filename, "rb") as file:
+    file.seek(0, 2)
+    size = file.tell()
+
+
+lines = len(data.splitlines())
+words = len(data.split())
+characters = len(data)
+
+print("Size of file in bytes:", size)
+print("Number of lines:", lines)
+print("Number of words:", words)
+print("Number of characters:", characters)`
             },
 
             12: {
                 title: "Project 12",
-                code: `# Project 12 code goes here`
+                code: `import random
+
+dice = random.randint(1, 6)
+
+print("Dice rolled:", dice)`
             },
 
             13: {
                 title: "Project 13",
-                code: `# Project 13 code goes here`
+                code: `import csv
+
+# Create CSV file and enter user-id and password
+with open("users.csv", "w", newline="") as file:
+    writer = csv.writer(file)
+
+    writer.writerow(["User ID", "Password"])
+
+    n = int(input("Enter number of users: "))
+
+    for i in range(n):
+        userid = input("Enter user-id: ")
+        password = input("Enter password: ")
+
+        writer.writerow([userid, password])
+
+
+# Search password for a given user-id
+search_id = input("\nEnter user-id to search: ")
+
+found = False
+
+with open("users.csv", "r") as file:
+    reader = csv.reader(file)
+
+    next(reader)
+
+    for row in reader:
+        if row[0] == search_id:
+            print("Password:", row[1])
+            found = True
+            break
+
+if found == False:
+    print("User-id not found.")`
             },
 
             14: {
                 title: "Project 14",
-                code: `# Project 14 code goes here`
+                code: `stack = []
+
+while True:
+    print("\n1. Push")
+    print("2. Pop")
+    print("3. Display")
+    print("4. Exit")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        item = input("Enter item to push: ")
+        stack.append(item)
+        print("Item pushed successfully.")
+
+    elif choice == 2:
+        if len(stack) == 0:
+            print("Stack Underflow")
+        else:
+            print("Deleted item:", stack.pop())
+
+    elif choice == 3:
+        if len(stack) == 0:
+            print("Stack is empty")
+        else:
+            print("Stack:", stack)
+
+    elif choice == 4:
+        break
+
+    else:
+        print("Invalid choice")`
             },
 
             15: {
                 title: "Project 15",
-                code: `# Project 15 code goes here`
+                code: `queue = []
+
+while True:
+    print("\n1. Enqueue")
+    print("2. Dequeue")
+    print("3. Display")
+    print("4. Exit")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        item = input("Enter item to insert: ")
+        queue.append(item)
+        print("Item inserted successfully.")
+
+    elif choice == 2:
+        if len(queue) == 0:
+            print("Queue Underflow")
+        else:
+            print("Deleted item:", queue.pop(0))
+
+    elif choice == 3:
+        if len(queue) == 0:
+            print("Queue is empty")
+        else:
+            print("Queue:", queue)
+
+    elif choice == 4:
+        break
+
+    else:
+        print("Invalid choice")`
             },
 
             16: {
