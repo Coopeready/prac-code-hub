@@ -1058,37 +1058,283 @@ while True:
 
             19: {
                 title: "Project 19",
-                code: `# Project 19 code goes here`
+                code: `# `
             },
 
             20: {
                 title: "Project 20",
-                code: `# Project 20 code goes here`
+                code: `CREATE DATABASE MovieDB;
+
+USE MovieDB;
+
+CREATE TABLE MOVIE
+(
+    Movie_ID VARCHAR(5) PRIMARY KEY,
+    MovieName VARCHAR(30),
+    Type VARCHAR(20),
+    ReleaseDate DATE,
+    ProductionCost INT,
+    BusinessCost INT
+);
+
+INSERT INTO MOVIE VALUES
+('M001','Dahek','Action','2022-01-26',1245000,1300000),
+('M002','Attack','Action','2022-01-28',1120000,1250000),
+('M003','Looop Lapeta','Thriller','2022-02-01',250000,300000),
+('M004','Badhai Do','Drama','2022-02-04',720000,68000),
+('M005','Shabaash Mithu','Biography','2022-02-04',1000000,800000),
+('M006','Gehraiyaan','Romance','2022-02-11',150000,120000);
+
+SELECT * FROM MOVIE;
+
+SELECT DISTINCT Type
+FROM MOVIE;
+
+SELECT Movie_ID,
+       MovieName,
+       ProductionCost + BusinessCost AS Total_Earning
+FROM MOVIE;
+
+SELECT Movie_ID,
+       MovieName,
+       ProductionCost
+FROM MOVIE
+WHERE ProductionCost > 150000
+AND ProductionCost < 1000000;`
             },
 
             21: {
                 title: "Project 21",
-                code: `# Project 21 code goes here`
+                code: `-- Create Database
+CREATE DATABASE Hospital;
+USE Hospital;
+
+-- Create Table
+CREATE TABLE PATIENT
+(
+    pno INT PRIMARY KEY,
+    pname VARCHAR(20),
+    age INT,
+    department VARCHAR(20),
+    dateofadm DATE,
+    charges DECIMAL(10,2),
+    sex CHAR(1)
+);
+
+-- Insert Records
+INSERT INTO PATIENT VALUES
+(101,'Ravi',35,'Cardiac','2021-01-13',550.00,'M'),
+(102,'Neha',32,'Women','2021-11-24',2640.00,'F'),
+(103,'Ankit',40,'Men','2021-06-05',2750.00,'M'),
+(104,'Pooja',28,'Orthopadic','2021-08-17',3080.00,'F'),
+(105,'Aman',30,'Cardiac','2021-11-29',880.00,'M'),
+(106,'Kiran',25,'Women','2021-12-20',2090.00,'F'),
+(107,'Suresh',38,'Men','2021-07-14',1430.00,'M'),
+(108,'Geeta',29,'Orthopadic','2021-09-09',3190.00,'F'),
+(109,'Manish',42,'Cardiac','2021-10-18',3500.00,'M');
+
+-- Display all records
+SELECT * FROM PATIENT;
+
+-- Query 1: Total charges of patients admitted in November
+SELECT SUM(charges) AS Total_Charges
+FROM PATIENT
+WHERE MONTH(dateofadm) = 11;
+
+-- Query 2: Eldest patient with name and age
+SELECT pname, age
+FROM PATIENT
+WHERE age = (SELECT MAX(age) FROM PATIENT);
+
+-- Query 3: Count unique departments
+SELECT COUNT(DISTINCT department) AS Unique_Departments
+FROM PATIENT;
+
+-- Query 4: Display average charges
+SELECT AVG(charges) AS Average_Charges
+FROM PATIENT;`
             },
 
             22: {
                 title: "Project 22",
-                code: `# Project 22 code goes here`
+                code: `-- Create Database
+CREATE DATABASE Sports;
+
+-- Select Database
+USE Sports;
+
+-- Create TEAM Table
+CREATE TABLE TEAM
+(
+    TeamID INT CHECK (TeamID BETWEEN 1 AND 9),
+    TeamName VARCHAR(20),
+    CONSTRAINT PK_TEAM PRIMARY KEY (TeamID)
+);
+
+-- Show Structure of TEAM Table
+DESC TEAM;
+
+-- Insert Records
+INSERT INTO TEAM VALUES
+(1,'Tehlka'),
+(2,'Toofan'),
+(3,'Aandhi'),
+(4,'Shailab');
+
+-- Display Contents of TEAM Table
+SELECT * FROM TEAM;`
             },
 
             23: {
                 title: "Project 23",
-                code: `# Project 23 code goes here`
+                code: `CREATE DATABASE SportsDB;
+
+USE SportsDB;
+
+CREATE TABLE MATCH_DETAILS
+(
+    MatchID VARCHAR(5) PRIMARY KEY,
+    MatchDate DATE,
+    FirstTeamID INT,
+    SecondTeamID INT,
+    FirstTeamScore INT,
+    SecondTeamScore INT
+);
+
+INSERT INTO MATCH_DETAILS VALUES
+('M1','2021-12-20',1,2,107,93),
+('M2','2021-12-21',3,4,156,158),
+('M3','2021-12-22',1,3,86,81),
+('M4','2021-12-23',2,4,65,67),
+('M5','2021-12-24',1,4,52,88),
+('M6','2021-12-25',2,3,97,68);
+
+SELECT * FROM MATCH_DETAILS;`
             },
 
             24: {
                 title: "Project 24",
-                code: `# Project 24 code goes here`
+                code: `CREATE DATABASE SportsDB;
+
+USE SportsDB;
+
+CREATE TABLE TEAM
+(
+    TeamID INT PRIMARY KEY,
+    TeamName VARCHAR(30)
+);
+
+INSERT INTO TEAM VALUES
+(1,'Anadhi'),
+(2,'Shailab');
+
+CREATE TABLE MATCH_DETAILS
+(
+    MatchID VARCHAR(5) PRIMARY KEY,
+    MatchDate DATE,
+    FirstTeamID INT,
+    SecondTeamID INT,
+    FirstTeamScore INT,
+    SecondTeamScore INT
+);
+
+INSERT INTO MATCH_DETAILS VALUES
+('M1','2021-12-20',1,2,107,93),
+('M2','2021-12-21',2,1,156,158),
+('M3','2021-12-22',1,2,86,81),
+('M4','2021-12-23',2,1,65,67),
+('M5','2021-12-24',1,2,52,88),
+('M6','2021-12-25',2,1,97,68);
+
+SELECT M.MatchID,
+       T.TeamID,
+       T.TeamName,
+       M.FirstTeamScore AS TeamScore
+FROM MATCH_DETAILS M, TEAM T
+WHERE M.FirstTeamID = T.TeamID
+AND M.FirstTeamScore > 70;
+
+SELECT M.MatchID,
+       T.TeamName,
+       M.SecondTeamScore
+FROM MATCH_DETAILS M, TEAM T
+WHERE M.SecondTeamID = T.TeamID
+AND M.SecondTeamScore BETWEEN 100 AND 160;
+
+SELECT M.MatchID,
+       T1.TeamName AS FirstTeam,
+       T2.TeamName AS SecondTeam,
+       M.MatchDate
+FROM MATCH_DETAILS M
+JOIN TEAM T1
+ON M.FirstTeamID = T1.TeamID
+JOIN TEAM T2
+ON M.SecondTeamID = T2.TeamID;
+
+SELECT DISTINCT TeamName
+FROM TEAM;
+
+SELECT M.MatchID,
+       M.MatchDate
+FROM MATCH_DETAILS M
+JOIN TEAM T1
+ON M.FirstTeamID = T1.TeamID
+JOIN TEAM T2
+ON M.SecondTeamID = T2.TeamID
+WHERE (T1.TeamName = 'Anadhi' AND T2.TeamName = 'Shailab')
+OR (T1.TeamName = 'Shailab' AND T2.TeamName = 'Anadhi');`
             },
 
             25: {
-                title: "Project 25",
-                code: `# Project 25 code goes here`
+                title: "Group by , Order By",
+                code: `CREATE DATABASE StockDB;
+
+USE StockDB;
+
+CREATE TABLE STOCK
+(
+    ItemNo VARCHAR(5) PRIMARY KEY,
+    Item VARCHAR(30),
+    DCode INT,
+    Qty INT,
+    UnitPrice DECIMAL(10,2),
+    StockDate DATE
+);
+
+INSERT INTO STOCK VALUES
+('S005','Ballpen',102,100,10,'2018-04-22'),
+('S003','Gel Pen',101,150,15,'2018-03-18'),
+('S002','Pencil',102,125,5,'2018-02-25'),
+('S006','Eraser',101,200,3,'2018-01-12'),
+('S001','Sharpner',103,210,5,'2018-06-11'),
+('S004','Compass',102,60,35,'2018-05-10'),
+('S009','A4 Papers',102,160,5,'2018-07-17');
+
+SELECT * FROM STOCK;
+
+SELECT *
+FROM STOCK
+ORDER BY StockDate ASC;
+
+SELECT DCode,
+       MAX(UnitPrice) AS Maximum_Price
+FROM STOCK
+GROUP BY DCode;
+
+SELECT *
+FROM STOCK
+ORDER BY Item DESC;
+
+SELECT DCode,
+       AVG(UnitPrice) AS Average_Price
+FROM STOCK
+GROUP BY DCode
+HAVING AVG(UnitPrice) > 5;
+
+SELECT DCode,
+       SUM(Qty) AS Total_Quantity
+FROM STOCK
+GROUP BY DCode;`
             }
 
         };
