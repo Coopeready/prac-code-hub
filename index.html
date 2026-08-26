@@ -1043,7 +1043,37 @@ while True:
 
             16: {
                 title: "Project 16",
-                code: `# Project 16 code goes here`
+                code: `import mysql.connector
+
+con = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="LaPizza12"
+)
+
+cur = con.cursor()
+
+cur.execute("CREATE DATABASE IF NOT EXISTS school")
+cur.execute("USE school")
+
+cur.execute("""
+CREATE TABLE IF NOT EXISTS students (
+    ROLLNO INT,
+    STNAME CHAR(10)
+)
+""")
+
+cur.execute("INSERT INTO students VALUES (1, 'Rahul')")
+cur.execute("INSERT INTO students VALUES (2, 'Aman')")
+
+con.commit()
+
+cur.execute("SELECT * FROM students")
+
+for row in cur:
+    print(row)
+
+con.close()`
             },
 
             17: {
